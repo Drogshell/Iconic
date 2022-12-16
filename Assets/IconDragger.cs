@@ -79,20 +79,29 @@ public class IconDragger : MouseManipulator
     {
         if (!_isActive || !target.HasMouseCapture()) return;
 
-        _iconContainer.Add(target);
+        if (target.worldBound.Overlaps(_dropZone.worldBound))
+        {
+            _dropZone.Add(target);
+            
+            target.style.top = _dropZone.contentRect.center.y - target.layout.height / 2;
+            target.style.left = _dropZone.contentRect.center.x - target.layout.width / 2;
+        }
+        else
+        {
+            _iconContainer.Add(target);
+            /*
+             * The code below sets the icon back in it's original container, we minus the contentRect
+             * to get the EXACT position when first picked up.
+            * This eliminates the bug where the icon constantly drifts from the old position
+            */
+            target.style.top = _startPositionLocal.y - _iconContainer.contentRect.position.y;
+            target.style.left = _startPositionLocal.x - _iconContainer.contentRect.position.x;
+        }
         
-        /*
-         * The code below sets the icon back in it's original container, we minus the contentRect
-         * to get the EXACT position when first picked up.
-         * This eliminates the bug where the icon constantly drifts from the old position
-         */
-        target.style.top = _startPositionLocal.y - _iconContainer.contentRect.position.y;
-        target.style.left = _startPositionLocal.x - _iconContainer.contentRect.position.x;
-
         _isActive = false;
         target.ReleaseMouse();
         evt.StopPropagation();
-
+        
         _dragArea.style.display = DisplayStyle.None;
     }
 }
