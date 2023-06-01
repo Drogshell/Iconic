@@ -1,0 +1,11 @@
+#NextHintButton:hover {
+    border-left-color: rgb(19, 15, 64);
+    border-right-color: rgb(19, 15, 64);
+    border-top-color: rgb(19, 15, 64);
+    border-bottom-color: rgb(19, 15, 64);
+    border-left-width: 3px;
+    border-right-width: 3px;
+    border-top-width: 3px;
+    border-bottom-width: 3px;
+    border-radius: 10px;
+}
