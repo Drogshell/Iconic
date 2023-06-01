@@ -1,4 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/NextHintButton.uss?fileID=7433441132597879392&amp;guid=2bf3879492a6046408ecf907d647e1ed&amp;type=3#NextHintButton" />
     <ui:VisualElement name="MainContainer" style="flex-grow: 1; background-color: rgb(83, 92, 104);">
         <ui:VisualElement name="UpperContainer" style="flex-basis: 20%; flex-direction: row; justify-content: space-between; align-items: center;">
             <ui:VisualElement name="SeparatorLeft" style="width: 25%; height: 10px; background-color: rgb(0, 0, 0);" />
@@ -8,7 +9,7 @@
         <ui:VisualElement name="MiddleContainer" style="flex-basis: 15%; flex-direction: row; justify-content: center; background-color: rgb(48, 51, 107);">
             <ui:VisualElement style="justify-content: flex-start; align-items: center;">
                 <ui:Label text="Question 1" display-tooltip-when-elided="true" name="QuestionCounter" style="color: rgb(0, 0, 0); font-size: 80px; -unity-font-style: bold;" />
-                <ui:Label text="Correct!" display-tooltip-when-elided="true" name="AnswerIndicator" style="font-size: 50px; color: rgb(106, 176, 76); -unity-font-definition: resource(&apos;Fonts/BoldenaBold-VGjmz SDF&apos;); -unity-font-style: normal;" />
+                <ui:Label text="Correct!" display-tooltip-when-elided="true" name="AnswerIndicator" style="font-size: 50px; color: rgb(106, 176, 76); -unity-font-definition: resource(&apos;Fonts/BoldenaBold-VGjmz SDF&apos;); -unity-font-style: normal; display: flex; visibility: hidden;" />
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="LowerContainer" style="flex-grow: 1; flex-direction: row;">
@@ -36,7 +37,7 @@
                     </ui:VisualElement>
                     <ui:VisualElement name="HintBar" style="flex-basis: 10%; flex-direction: row; padding-bottom: 10px;">
                         <ui:Label text="Hint 1&#10;" display-tooltip-when-elided="true" name="HintNumber" style="font-size: 30px; color: rgb(0, 0, 0); flex-grow: 1;" />
-                        <ui:Button text="Next Hint&#10;" display-tooltip-when-elided="true" name="NextHintButton" style="font-size: 20px; background-color: rgb(72, 52, 212); padding-left: 10px; padding-right: 10px; padding-top: 4px; padding-bottom: 4px; -unity-text-align: upper-center; color: rgb(19, 15, 64); -unity-font-definition: resource(&apos;Fonts/BoldenaBold-VGjmz SDF&apos;); border-left-width: 3px; border-right-width: 3px; border-top-width: 3px; border-bottom-width: 3px; border-left-color: rgb(19, 15, 64); border-right-color: rgb(19, 15, 64); border-top-color: rgb(19, 15, 64); border-bottom-color: rgb(19, 15, 64); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;" />
+                        <ui:Button text="Next Hint&#10;" display-tooltip-when-elided="true" name="NextHintButton" class="NextHintButton" style="font-size: 20px; background-color: rgb(72, 52, 212); padding-left: 10px; padding-right: 10px; padding-top: 4px; padding-bottom: 4px; -unity-text-align: upper-center; color: rgb(19, 15, 64); -unity-font-definition: resource(&apos;Fonts/BoldenaBold-VGjmz SDF&apos;); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; transition-duration: 0.1s; transition-timing-function: ease-in; border-left-color: rgb(19, 15, 64); border-right-color: rgb(19, 15, 64); border-top-color: rgb(19, 15, 64); border-bottom-color: rgb(19, 15, 64);" />
                     </ui:VisualElement>
                     <ui:VisualElement name="QuestionText" style="flex-basis: 30%;">
                         <ui:Label text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sagittis convallis rhoncus. Nam interdum dignissim dui, at dapibus nisi consequat ac. Curabitur placerat metus et mi finibus laoreet. Fusce posuere." display-tooltip-when-elided="true" name="Hint" style="color: rgb(0, 0, 0); white-space: normal; font-size: 25px; -unity-font-style: normal;" />

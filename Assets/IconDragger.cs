@@ -5,6 +5,8 @@ using UnityEngine.UIElements;
 
 public class IconDragger : MouseManipulator
 {
+    private GameManager _manager;
+    
     private Vector2 _startPosition;
     private Vector2 _startPositionGlobal;
     private Vector2 _startPositionLocal;
@@ -16,8 +18,9 @@ public class IconDragger : MouseManipulator
 
     private bool _isActive;
     
-    public IconDragger(VisualElement root)
+    public IconDragger(VisualElement root, GameManager manager)
     {
+        _manager = manager;
         _dragArea = root.Q("DragArea");
         _dropZone = root.Q("DropArea");
 
@@ -85,6 +88,8 @@ public class IconDragger : MouseManipulator
             
             target.style.top = _dropZone.contentRect.center.y - target.layout.height / 2;
             target.style.left = _dropZone.contentRect.center.x - target.layout.width / 2;
+            
+            _manager.CheckAnswer(((Question)target.userData).answer);
         }
         else
         {
